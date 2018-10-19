@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.ngdialog-content{
+posistion:relative;
+margin-left:50px;
+width :1200px !important;
+}
+.ngdialog.ngdialog-theme-default .ngdialog-close{
+
+     cursor: pointer;
+    right: -7px;
+    top: -7px;
+    left: 17px;
+}
+.reportArea{
+    width: 1200px;
+    min-height: 117px;
+    position: relative;
+    margin-left: -30px;
+    margin-top: 4px;
+}
+.TestingPart, .NonTestingPart{
+    font-family: "Roboto Condensed", Arial, sans-serif;
+}
+ textarea {
+    resize: none;
+}
+#testingInputcomm1 {
+	width: 100%;
+	background-color: rgb(242,242,242);
+}
+#nonTestingInputcomm1 {
+	width: 100%;
+	background-color: rgb(217,217,217);
+}
+#testingInputcomm {
+	width: 100%;
+	background-color: rgb(242,242,242);
+}
+#nonTestingInputcomm {
+	width: 100%;
+	background-color: rgb(217,217,217);
+}
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+    margin-top: -32px;
+}
+td{
+width:15px;
+}
+td[valign="top"] {
+    display: block;
+}
+
+td[valign="top"][style="width: 15%"] {
+    white-space: nowrap;
+    display: table-cell;
+}
+.redText{
+color:red;
+}
+</style>
+<script type="text/javascript">
+$('.reportJpg').click(function(){
+	
+	  saveAsJpeg();
+	  
+});
+function saveAsJpeg()
+{
+	var temp = window.open();
+	$('#testingText').removeClass("textRotate");
+	$('#nonTestingText').removeClass("textRotate");
+html2canvas($(".screenshotDiv"), {
+onrendered: function(canvas) {
+	temp.close();
+	backToRotate();
+var myImage = canvas.toDataURL("image/jpeg");
+window.open(myImage);
+},
+width: 3000,
+height: 3000
+});
+}
+function backToRotate() {
+	$('#testingText').addClass("textRotate");
+	$('#nonTestingText').addClass("textRotate");
+}
+$('.projectCOQTable tbody tr td:nth-last-child(1)').css("text-align","center");
+</script>
+</head>
+<body >
+
+<div class="col-md-10">
+		<div class="reportArea">
+			<div>
+					<img class="reportJpg" src="images/quizReportJpg.png" style="float: left; margin-left: 20px; margin-top: -3px;">
+				</div>
+		<div class="screenshotDiv" style="background-color:white"> 
+		<div class="pageName">
+				<label style="margin-left: 178px; font-family: 'Roboto Condensed', Arial, sans-serif;">COQ - {{tableVal.title}}</label>
+				<div style="float:right; color: orange; margin-right:22px; margin-top: 16px; font-family: 'Roboto Condensed', Arial, sans-serif;">Last Updated
+				<span>{{tableVal.lastUpdated}}</span> 
+				</div>
+			</div>
+			<div>
+				<div class="generationArea">
+						<div class="col-md-12 projectCOQTable">
+							<table class="table table-bordered">
+								    <thead>
+								      <tr class="TestingPart">
+								        <th></th>
+								        <th style="width: 14%;">TEAM</th>
+								         <th style="width: 11%;">PREVENTION COST</th>
+								        <th style="width: 12%;">APPRAISAL COST</th>
+								        <th style="width: 13%;">INTERNAL FAILURE COST</th>
+								        <th style="width: 14%;">EXTERNAL FAILURE COST</th>
+								        <th style="width: 12%;">PERFORMANCE COST</th>
+								        <th>TOTAL</th>
+								        <th>PERCENTAGE</th>
+								      </tr>
+								    </thead>
+								    <tbody>
+								    	<tr class="TestingPart">
+								    		<td rowspan="4"><span class="textRotate textRotateStyle" id="testingText" style="margin-left: 13px;">TESTING</span></td>
+								    		<td>QA - SIT</td>
+								    		<td><span class="pull-right" >{{tableVal.tcsQAPrevention | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.tcsQAAppraisal | currency:undefined:2}} </span></td>
+								    		<td><span class="pull-right" >{{tableVal.tcsQAInternalFailure | currency:undefined:2}} </span></td>
+								    		<td><span class="pull-right" >{{tableVal.tcsQAExternalFailure | currency:undefined:2}} </span></td>
+								    		<td align="center"> NA</td>
+								    <!-- <td ><span ng-model="tcsTotal">{{(tableVal.tcsQAPrevention|number) -- (tableVal.tcsQAAppraisal|number)}}</span></td> -->
+								      		<td><span class="pull-right" id="tcsQATotal">{{+tableVal.tcsQATotal  | currency:undefined:2 || 0}} </span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.qaPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="TestingPart">
+								    		<td>Others - SIT</td>
+								    		<td><span class="pull-right">{{tableVal.othersPrevention | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.othersAppraisal | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.othersInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.othersExternalFailure | currency:undefined:2}}</span></td>
+								    		<td align="center">NA</td>
+								    		<td><span class="pull-right">{{ +tableVal.othersTotal  | currency:undefined:2 || 0 }} </span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.othersPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="TestingPart">
+								    		<td>QA - UAT</td>
+								    		<td><span class="pull-right">{{tableVal.tcsQAUATPrevention | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.tcsQAUATAppraisal | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.tcsQAUATInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.tcsQAUATExternalFailure | currency:undefined:2}}</span></td>
+								    		<td align="center"> NA</td>
+								    		<td><span class="pull-right">{{+tableVal.tcsQAUATTotal | currency:undefined:2 || 0}}</span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.qaUATPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="TestingPart">
+								    		<td>Others - UAT</td>
+								    		<td><span class="pull-right">{{tableVal.othersUATPrevention | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.othersUATAppraisal | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.othersUATInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{tableVal.othersUATExternalFailure | currency:undefined:2}}</span></td>
+								    		<td align="center"> NA</td>
+								    		<td><span class="pull-right">{{+tableVal.othersUATTotal | currency:undefined:2 || 0}}</span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.othersUATPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="TestingPart">
+								    		<td colspan = "7" style = "text-align:right ! important">TOTAL</td>
+								    		<td><span class="pull-right">{{+tableVal.testingTotal | currency:undefined:2 || 0}} </span></td>
+								    		<td><span id="tcsQATotal">{{tableVal.testingTotalPercent}}</span>%</td>
+								    	</tr>
+								    	
+								    	<tr class="NonTestingPart">
+								    		<td rowspan="4"><span class="textRotate textRotateStyle" id="nonTestingText" >NON TESTING</span></td>
+								    		<td>BA</td>
+								    		<td><span  class="pull-right" >{{tableVal.nonTestingBAPreventionCost | currency:undefined:2}}</span></td>
+								    		<td><span  class="pull-right">{{tableVal.nonTestingBAAppraisalCost | currency:undefined:2}}</span></td>
+								    		<td><span  class="pull-right">{{tableVal.nonTestingBAInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right"  >{{tableVal.nonTestingBAExternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right"  >{{tableVal.nonTestingBAPreformanceCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{+tableVal.nonTestingBATotalCost | currency:undefined:2 || 0}}</span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.nonTestBAPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="NonTestingPart">
+								    		<td>Development</td>
+								    			<td><span class="pull-right">{{tableVal.nonTestingDevelopmentPreventionCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingDevelopmentAppraisalCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingDevelopmentInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingDevelopmentExternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right"  >{{tableVal.nonTestingDevelopmentPreformanceCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{+tableVal.nonTestingDevelopmentTotalCost | currency:undefined:2 || 0}}</span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.nonTestDevPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="NonTestingPart">
+								    		<td>Project Management</td>
+								    		<td><span class="pull-right">{{tableVal.nonTestingProjectPreventionCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingProjectAppraisalCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingProjectInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingProjectExternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right"  >{{tableVal.nonTestingProjectPreformanceCost | currency:undefined:2}}</span> </td>
+								    		<td><span class="pull-right">{{+tableVal.nonTestingProjectTotalCost | currency:undefined:2|| 0}}</span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.nonTestProjPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="NonTestingPart">
+								    		<td>Others</td>
+								    			<td><span class="pull-right">{{tableVal.nonTestingOthersPreventionCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingOthersAppraisalCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingOthersInternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right" >{{tableVal.nonTestingOthersExternalFailure | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right"  >{{tableVal.nonTestingOthersPreformanceCost | currency:undefined:2}}</span></td>
+								    		<td><span class="pull-right">{{+tableVal.nonTestingOthersTotalCost | currency:undefined:2|| 0}}</span></td>
+								    		<td><span class="redText" ng-show="tableVal.overAllCost==0">0.00*</span><span ng-show="tableVal.overAllCost>0.0" id="tcsQATotal">{{tableVal.nonTestOthersPercent}}</span>%</td>
+								    	</tr>
+								    	<tr class="NonTestingPart">
+								    		<td colspan = "7" style = "text-align:right ! important">TOTAL</td>
+								    			<td><span class="pull-right">{{tableVal.nontestingTotal | currency:undefined:2}} </span></td>
+								    		
+								    		<td><span id="tcsQATotal">{{tableVal.nonTestingPercent}}</span>%</td>
+								    	</tr>
+								    </tbody>
+								  </table>
+								  <div style="margin-top: -1%; margin-bottom: 1%; font-family: 'Roboto Condensed', Arial, sans-serif;""><span class="redStar">* </span> - Indicates that Overall Project cost is not Entered</div>
+						</div>
+							<div class="col-sm-4 col-md-4 col-lg-4" style="margin-top:1%">
+									<label style="font-family: 'Roboto Condensed', Arial, sans-serif;"> Project Completion date:</label>
+							<span style="font-family: 'Roboto Condensed', Arial, sans-serif;">{{tableVal.projectEndDate}}</span>
+							<br>
+							</div>					
+						<div class="col-sm-12 col-md-12 col-lg-12 projectCOQCommentsTable">
+							<table class="table table-bordered">
+								     <tbody>
+							
+								    <tr class="TestingPart">
+                                            <td style="width: 25%; vertical-align: middle;">Overall Project cost</td>
+                                             <td style="width: 25%;" colspan="1"> <span  class="pull-right">{{tableVal.overAllCost | currency:undefined:2}}</span></td>
+                                             <td style="width: 50%;" colspan="1">
+                                                <textarea style="border: none; width: 100%;" readonly id="testingInput" type="text" placeholder="Comments" maxlength="500">{{tableVal.overAllCostComments}}</textarea>
+                                            </td>
+                                        </tr>
+								    	<tr class="TestingPart">
+                                            <td style="vertical-align: middle;">Testing related Cost - Comments</td>
+                                            
+                                            <td id="testingInputcomm1" colspan="2" >
+                                                <textarea style="border: none" readonly type="text" id="testingInputcomm" placeholder="Comments" maxlength="500">{{tableVal.testRelatedComments}}</textarea>
+                                            </td>
+                                      
+                                        </tr>
+                                        <tr class="NonTestingPart">
+                                            <td style="vertical-align: middle;">NON Testing related Cost - Comments</td>
+                                            
+                                               
+                                            <td id="nonTestingInputcomm1" colspan="2">
+                                                <textarea style="border: none" readonly type="text" id="nonTestingInputcomm" placeholder="Comments" maxlength="500">{{tableVal.nontestRelatedComments}}</textarea>
+                                            </td>
+                                            
+                                        </tr>
+								    </tbody>
+								  </table>
+						</div>
+					
+				</div>
+		</div>
+		</div>
+	</div>
+	</div>
+	</body>
+	</html>

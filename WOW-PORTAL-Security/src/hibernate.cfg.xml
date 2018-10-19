@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+    	
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <!--  LOCAL --> <property name="connection.url">jdbc:mysql://10.168.231.83/wowportal</property> 
+   <!--  PROD  <property name="connection.url">jdbc:mysql://10.136.231.46/wowportal</property>  -->
+        
+	  <!-- UAT <property name="connection.url">jdbc:mysql://nnorsovmws307/wowportal</property>  -->
+  
+        <property name="connection.username">wowuser</property>
+        <property name="connection.password">wow123</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      	 <property name="hibernate.connection.pool_size">100</property> 
+        <property name="show_sql">true</property>
+       	<!--   <property name="format_sql">true</property> -->
+    	<property name="use_sql_comments">true</property>
+    	<property name="hibernate.hbm2ddl.import_files_sql_extractor">org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor</property>
+    <!--   <property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>-->
+         <property name="hibernate.connection.provider_class"> org.hibernate.c3p0.internal.C3P0ConnectionProvider </property> 
+         <property name="hibernate.c3p0.privilegeSpawnedThreads">true</property>
+<property name="hibernate.c3p0.contextClassLoaderSource">library</property>
+         <property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">100</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.max_statements">500</property>
+		<property name="hibernate.c3p0.timeout">1800</property> 
+		
+		
+		
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>  
+      <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+<property name="hibernate.cache.provider_configuration_file_resource_path">/ehcache1.xml</property> 
+<property name="hibernate.cache.use_second_level_cache">false</property>   
+<!-- 	<mapping resource="defectStatus.hbm.xml"/> -->
+        <mapping class="model.Wowmain"/>
+	    <mapping class="model.Defect_Status"/>
+	     <mapping class="model.Defect_Status_UAT"/>
+	    <mapping class="model.RootCause"/>
+	    <mapping class="model.RootCauseUAT"/>
+	    <mapping class="model.TestExecution"/>
+	    <mapping class="model.TestExecutionUAT"/>
+	    <mapping class="model.TestExecutionMain"/>
+	     <mapping class="model.TestExecutionMainUAT"/>
+	    <mapping class="model.PerformanceKeys"/>
+	    <mapping class="model.TableData"/>
+	    <mapping class="model.User"/>
+	    <mapping class="model.Role"/>
+	    <mapping class="model.Resources"/>
+	     <mapping class="model.SlaMain"/>
+        <mapping class="model.SlaProject"/>
+         <mapping class="model.SlaRootCause"/>
+        <mapping class="model.SlaDefect"/>
+        <mapping class="model.VMData"/>
+        <mapping class="model.Mcalm"/>
+        <mapping class="model.Performance"/>
+         <mapping class="model.Automation"/>
+	
+	     
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="MasterCraft.src.com.wow.alm.Maintenance" table="wm_maintenance">
+<id name="store_no" column="store_no" type="string">
+</id>
+<property name="store_version" column="store_version" type="string"></property>
+<property name="environment" column="environment" type="string"></property>
+<property name="fromtime" column="fromtime" type="date"></property>
+<property name="totime" column="totime" type="date"></property>
+<property name="createdate" column="createdate" type="date"></property>
+<property name="updatedate" column="updatedate" type="date"></property>
+<property name="createby" column="createby" type="String"></property>
+<property name="updateby" column="updateby" type="String"></property>
+</class>
+</hibernate-mapping>

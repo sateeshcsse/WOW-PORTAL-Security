@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+    	<property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">auto</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.url">jdbc:mysql://127.0.0.1/wowportal</property> 
+        	  <!-- <property name="connection.url">jdbc:mysql://nnorsogfws754/wowportal</property> -->
+        <property name="connection.username">qauser</property>
+        <property name="connection.password">qa123</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+       <!--   <property name="format_sql">true</property> -->
+    <property name="use_sql_comments">true</property>
+        <mapping resource="wowmain.hbm.xml"/>
+	    <mapping resource="defectStatus.hbm.xml"/>
+	    <mapping resource="testExecutionMain.hbm.xml"/>
+	    <mapping resource="testExecution.hbm.xml"/>
+	 <mapping class="MasterCraft.src.com.wow.alm.PerformanceKeys"/>
+	 <mapping class="MasterCraft.src.com.wow.alm.Rootcause"/>
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="MasterCraft.src.com.wow.alm.Wowmain" table="wowmain">
+<id name="unique_id">
+<generator class="identity" ></generator>
+</id>
+<property name="portfolio"></property>
+<property name="bus_unit"></property>
+<property name="project_phase"></property>
+<property name="test_phase"></property>
+<property name="project"></property>
+<property name="golivedate"></property>
+<property name="performance"></property>
+<property name="summary"></property>
+<property name="last_updated"></property>
+</class>
+</hibernate-mapping>

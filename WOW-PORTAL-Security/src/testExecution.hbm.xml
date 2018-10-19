@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="MasterCraft.src.com.wow.alm.TestExecution" table="testexecution">
+<id name="test_execution_id">
+<generator class="assigned"></generator>
+</id>
+<property name="pass"></property>
+<property name="fail"></property>
+<property name="blocked"></property>
+<property name="in_progress"></property>
+<property name="no_run"></property>
+<property name="not_available"></property>
+<property name="total"></property>
+<property name="percentage_completion"></property>
+<property name="expected_percent"></property>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="MasterCraft.src.com.wow.alm.DefectStatus" table="defect_status">
+<id name="unique_id">
+<generator class="assigned"></generator>
+</id>
+<property name="new_def_sev1"></property>
+<property name="new_def_sev2"></property>
+<property name="new_def_sev3"></property>
+<property name="new_def_sev4"></property>
+<property name="open_def_sev1"></property>
+<property name="open_def_sev2"></property>
+<property name="open_def_sev3"></property>
+<property name="open_def_sev4"></property>
+<property name="rejected_def_sev1"></property>
+<property name="rejected_def_sev2"></property>
+<property name="rejected_def_sev3"></property>
+<property name="rejected_def_sev4"></property>
+<property name="in_progress_def_sev1"></property>
+<property name="in_progress_def_sev2"></property>
+<property name="in_progress_def_sev3"></property>
+<property name="in_progress_def_sev4"></property>
+<property name="clarify_def_sev1"></property>
+<property name="clarify_def_sev2"></property>
+<property name="clarify_def_sev3"></property>
+<property name="clarify_def_sev4"></property>
+<property name="fixed_def_sev1"></property>
+<property name="fixed_def_sev2"></property>
+<property name="fixed_def_sev3"></property>
+<property name="fixed_def_sev4"></property>
+<property name="assigned_def_sev1"></property>
+<property name="assigned_def_sev2"></property>
+<property name="assigned_def_sev3"></property>
+<property name="assigned_def_sev4"></property>
+<property name="retest_def_sev1"></property>
+<property name="retest_def_sev2"></property>
+<property name="retest_def_sev3"></property>
+<property name="retest_def_sev4"></property>
+<property name="reopen_def_sev1"></property>
+<property name="reopen_def_sev2"></property>
+<property name="reopen_def_sev3"></property>
+<property name="reopen_def_sev4"></property>
+<property name="closed_def_sev1"></property>
+<property name="closed_def_sev2"></property>
+<property name="closed_def_sev3"></property>
+<property name="closed_def_sev4"></property>
+<property name="deferred_def_sev1"></property>
+<property name="deferred_def_sev2"></property>
+<property name="deferred_def_sev3"></property>
+<property name="deferred_def_sev4"></property>
+<property name="cancelled_def_sev1"></property>
+<property name="cancelled_def_sev2"></property>
+<property name="cancelled_def_sev3"></property>
+<property name="cancelled_def_sev4"></property>
+</class>
+</hibernate-mapping>

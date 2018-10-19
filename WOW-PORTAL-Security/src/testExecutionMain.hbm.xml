@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="MasterCraft.src.com.wow.alm.TestExecutionMain" table="test_execution_main">
+<id name="test_execution_id">
+<generator class="increment"></generator>
+</id>
+<property name="unique_id"></property>
+<property name="release_name"></property>
+<property name="release_iteration_name"></property>
+<property name="cycle_name"></property>
+<property name="suite_name"></property>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+
+<context:component-scan base-package="services"/>
+
+
+	<security:http auto-config="true" use-expressions="false" > 
+		<security:intercept-url pattern="/projectCOQ.jsp" access="ROLE_COQADMIN, ROLE_SUPERADMIN"/>
+		<security:intercept-url pattern="/addResources.jsp" access="ROLE_RESOURCEADMIN, ROLE_SUPERADMIN"/>
+		<security:intercept-url pattern="/addResourcesDashboard.jsp" access="ROLE_RESOURCEADMIN, ROLE_SUPERADMIN"/>
+		<security:intercept-url pattern="/grantPrivileges.jsp" access="ROLE_RESOURCEADMIN, ROLE_SUPERADMIN"/>
+		<security:intercept-url pattern="/addUpdateSLAMetrics.jsp" access="ROLE_SLAADMIN, ROLE_SUPERADMIN"/>
+		
+		
+		  <security:intercept-url pattern="**/styles/**" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_COQADMIN, ROLE_SUPERADMIN,ROLE_RESOURCEADMIN,ROLE_SLAADMIN"/>
+		   <security:intercept-url pattern="**/js/**" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_COQADMIN, ROLE_SUPERADMIN,ROLE_RESOURCEADMIN,ROLE_SLAADMIN"/>
+		     <security:intercept-url pattern="**/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_COQADMIN, ROLE_SUPERADMIN,ROLE_RESOURCEADMIN,ROLE_SLAADMIN"/>
+        <security:intercept-url pattern="/**" access="ROLE_ANONYMOUS,ROLE_COQADMIN, ROLE_SUPERADMIN,ROLE_RESOURCEADMIN,ROLE_SLAADMIN"/>
+
+		<security:form-login login-page="/login.do" login-processing-url="/login.do" username-parameter="custom_username" 
+			password-parameter="custom_password"
+			 authentication-success-handler-ref="authSuccessHandler"
+			default-target-url="/"
+			always-use-default-target="true"
+			authentication-failure-url="/login.do?error=true"/>
+			<security:logout logout-url="/logout.do" logout-success-url="/login.do?logout=true"/>
+		<security:csrf disabled="true"/>
+		 <security:headers >
+        <security:cache-control />
+        <security:hsts/>
+    </security:headers>
+	</security:http >
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailService"/>
+			<!-- <security:user-service>
+				<security:user name="user1" password="password" authorities="ROLE_USER"/>
+				<security:user name="admin" password="password" authorities="ROLE_USER,ROLE_FOO"/>
+			</security:user-service> -->
+		
+	</security:authentication-manager>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/test" />
+		<property name="username" value="root" />
+		<property name="password" value="password" />
+	</bean>
+<bean id="authSuccessHandler" class=" services.AuthSuccessHandler" />
+
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+<property name="cacheSeconds" value="0" />
+</bean>
+
+</beans>

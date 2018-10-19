@@ -1,0 +1,344 @@
+@CHARSET "ISO-8859-1";
+
+.selectionArea{
+	  position: relative;
+  display: inline-block;
+  /* background-color: beige; */
+  width: 103%;
+  background: #f5f5f5;
+  top: -3px;
+  height : 58px;
+}
+.selectionArea label{
+	display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  color: #8AC759;
+/*   margin-right: 9px; */
+  font-size: 16px;
+      margin-top: 3px;
+  
+}
+.selectionArea .row1{
+	  padding: -10px 0px 0px 0px;
+}
+.selectionArea .row2{
+	    PADDING: 30PX 0PX 48PX 0PX;
+}
+.selectionArea .row1 .col-md-3 .col-md-5{
+	  padding-left: 0px;
+}
+.selectionArea .row1 .col-md-3 .col-md-3{
+	  padding-left: 0px;
+}
+.selectionArea .row1 .col-md-3 .col-md-7{
+	  padding-left: 0px;
+}
+/* updated/added for positioning submit reset buttons starts*/
+.selectionArea .row2 .btn-primary{
+  margin: -8px 0px 16px 0px;
+}
+.submitBtn {
+	margin-left : -8px !important;
+}
+/* updated/added for positioning submit reset buttons ends*/
+.selectionArea .row2 .col-md-9 .col-md-1{
+	  padding-left: 0px;
+}
+.selectionArea .row2 .col-md-9 .col-md-11{
+	  padding-left: 4px;
+}
+.selectionArea .row2 .col-md-3 .col-md-5{
+	  padding-left: 0px;
+}
+.selectionArea .row2 .col-md-3 .col-md-7{
+	  padding-left: 0px;
+}
+.ui-datepicker-trigger{
+     position: absolute;
+    top: 4px;
+    float: right;
+    right: 18px;
+    width: 23px;
+}
+.generationArea{
+	  position: relative;
+  display: inline-block;
+    width: 100%;
+}
+.generationArea h3{
+	  TEXT-ALIGN: CENTER;
+	    color: #8AC759;
+	    font-size:20px;
+}
+.reportArea {
+  background-color: white;
+  height: auto;
+  margin-left: -13px;
+  margin-top: -10px;
+  width: 125.7%;
+  display: inline-block;
+}
+.overViewStatusTable table tbody tr td:nth-child(1),.overViewStatusTable table tbody tr td:nth-child(2){
+	cursor:pointer;
+}
+
+.overViewStatusTable table tbody tr td:nth-child(1),.overViewStatusTable table tbody tr td:nth-child(2),.overViewStatusTable table tbody tr td:nth-child(3),.overViewStatusTable table tbody tr td:nth-child(4),.overViewStatusTable table tbody tr td:nth-child(5),.overViewStatusTable table tbody tr td:nth-child(6),.overViewStatusTable table tbody tr td:nth-child(7),.overViewStatusTable table tbody tr td:nth-child(8){
+	text-align:center ! important;
+}
+.statusView table tbody tr td:nth-child(1),.statusView table tbody tr td:nth-child(2),.statusView table tbody tr td:nth-child(3),.statusView table tbody tr td:nth-child(4),.statusView table tbody tr td:nth-child(5),.statusView table tbody tr td:nth-child(6),.statusView table tbody tr td:nth-child(7),.statusView table tbody tr td:nth-child(8){
+	text-align:center ! important;
+}
+.performanceKeys table tbody tr td{
+	text-align:center ! important;
+}
+input[type="search"] {
+	height : 15px ! important;
+}
+.performanceKeys thead tr:nth-child(1),.summary thead tr:nth-child(1),.executionStatus thead tr:nth-child(1),.riskAndIssues thead tr:nth-child(1),.defectStatus thead tr:nth-child(1),.defectStatusUAT thead tr:nth-child(1),.sitRootCauseAnalysis thead tr:nth-child(1),.uatRootCauseAnalysis thead tr:nth-child(1),.rootCauseStatus thead tr:nth-child(1){
+	text-align:left ! important;
+}
+.performanceKeys thead tr:nth-child(2) th,.executionStatus thead tr:nth-child(2) th,.riskAndIssues thead tr:nth-child(2) th,.defectStatus thead tr:nth-child(2) th,.defectStatusUAT thead tr:nth-child(2) th,.sitRootCauseAnalysis thead tr:nth-child(2) th,.uatRootCauseAnalysis thead tr:nth-child(2) th,.rootCauseStatus thead tr:nth-child(2) th{
+background-color: #F5F5F5;	
+}
+.sitRootCauseAnalysis tbody tr:nth-child(1) td,.uatRootCauseAnalysis tbody tr:nth-child(1) td {
+	background-color: white ! important;	
+} 
+.executionStatus thead tr:nth-child(2) th:nth-child(2){
+	/* background-color:#D7E4BD; */
+}
+.executionStatus thead tr:nth-child(2) th:nth-child(3){
+	/* background-color:#E6B9B8; */
+}
+.executionStatus thead tr:nth-child(2) th:nth-child(4){
+	/* background-color:#CCC1DA; */
+}
+.executionStatus thead tr:nth-child(2) th:nth-child(5){
+	/* background-color:#B7DEE8; */
+}
+.executionStatus thead tr:nth-child(2) th:nth-child(6){
+	/* background-color:#FCD5B5; */
+}
+.executionStatus thead tr:nth-child(2) th, .executionStatus tbody tr td, .defectStatus tbody tr td, .defectStatusUAT tbody tr td, .sitRootCauseAnalysis tbody tr td, .uatRootCauseAnalysis tbody tr td {
+	text-align:center;
+}
+.verticalAlign {
+	vertical-align: middle ! important;
+}
+.performanceKeys .table-bordered,.statusView .table-bordered,.summary .table-bordered, .riskAndIssues .table-bordered, .executionStatus .table-bordered,.defectStatus .table-bordered,.defectStatusUAT .table-bordered,.sitRootCauseAnalysis .table-bordered,.uatRootCauseAnalysis .table-bordered,.rootCauseStatus .table-bordered{
+  border: 3px solid #ddd;
+}
+.rootCauseStatus table tbody tr td{
+	background-color:white ! important;
+}
+/* .overViewStatusTable table tbody tr:nth-child(2n) td:nth-child(1){
+	color:#C00038;
+}
+.overViewStatusTable table tbody tr:nth-child(3n+1) td:nth-child(1){
+	color:#8000FF;
+} */
+.overViewStatusTable table thead th,.statusView table thead th,.performanceKeys table thead tr:nth-child(1) th,.summary table thead tr:nth-child(1) th,.riskAndIssues table thead tr:nth-child(1) th,.executionStatus table thead tr:nth-child(1) th,.defectStatus table thead tr:nth-child(1) th,.defectStatusUAT table thead tr:nth-child(1) th,.sitRootCauseAnalysis table thead tr:nth-child(1) th,.uatRootCauseAnalysis table thead tr:nth-child(1) th,.rootCauseStatus table thead tr:nth-child(1) th{
+	  font-weight: bold;
+  font-size: 15px;
+}
+
+/* .projectCOQTable table tbody tr:nth-child(n+6){
+	background-color:#989898;
+} */
+.green{
+	  background-color: #00B050 ! important;
+
+}
+.red{
+	  background-color: #FF0000 ! important;
+}
+.amber{
+	  background-color: #FFA829 ! important;
+}
+.detailedViewStatusTable,.performanceKeys{
+	display:inline-block;
+	width:100%;
+}
+.statusView tr td:nth-child(1),.executionStatus tr td:nth-child(1),.defectStatus tr td:nth-child(1),.defectStatusUAT tr td:nth-child(1),.sitRootCauseAnalysis tr td:nth-child(1),.uatRootCauseAnalysis tr td:nth-child(1){
+  color: #8000FF
+ }
+ .details h4{
+ color: #8AC759;
+ }
+ .details table thead tr:nth-child(1) th{
+/*    background-color: transparent;
+  text-align: left;
+  color: #8AC759;
+  font-size: 15px;
+  border: 1px solid white; */
+  
+      background-color: #F5F5F5;
+ 
+ }
+ .details table thead tr:nth-child(2) th {
+  background-color: #F5F5F5;
+}
+.details table tbody tr td select{
+  /* display: block; */
+  width: 100%;
+  height: 20px;
+  padding: 0px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+/*   color: #555; */
+  background-color: TRANSPARENT;
+  background-image: none;
+  border: 1px solid TRANSPARENT;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px transparent;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    border: none;
+    outline:none;
+}
+.details table tbody tr td{
+	background-color:#00B050;
+}
+.details table tfoot tr td{
+	  text-align: center;
+}
+.projectDetailsArea table .form-control:focus{
+   -webkit-box-shadow: none;
+          box-shadow: none; 
+}
+.projectDetailsArea  table .form-control .green{
+color:#00B050;	
+background-color:transparent ! important;	
+}
+.projectDetailsArea  table .form-control .red{
+color:rgb(255, 0, 0);	
+background-color:transparent ! important;	
+}
+.projectDetailsArea  table .form-control .amber{
+color:rgb(255, 168, 41);	
+background-color:transparent ! important;	
+}
+.projectDetailsArea .details{
+	position: relative;
+    display: inline-block;
+}
+.projectDetailsArea .summary{
+	position: relative;
+    display: inline-block;
+}
+.projectDetailsArea .riskAndIssues{
+	position: relative;
+    display: inline-block;
+}
+.projectDetailsArea .summary table tr td input{
+	    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.projectDetailsArea .summary table tr td{
+	padding: 0px;
+}
+.projectDetailsArea .summary table {
+    border: 2px solid #ddd;
+} 
+.projectDetailsArea .summary label{
+    font-size: 15px;
+}
+.projectDetailsArea .riskAndIssues table tr td input{
+	    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.projectDetailsArea .riskAndIssues table tr td{
+	padding: 0px;
+}
+.projectDetailsArea .riskAndIssues table {
+    border: 2px solid #ddd;
+} 
+.projectDetailsArea .riskAndIssues label{
+    font-size: 15px;
+} 
+.projectDetailsArea .buttonPannel{
+text-align: center;
+margin-bottom: 20px;
+}
+#container1{
+	    width: 80%;
+}
+.highcharts-container{
+    height: auto;
+    position: relative;
+    overflow: hidden;
+       height: 243px ! important;
+           width: 500px ! important;
+    left: 68px;
+    top: 0px;
+}
+
+/** added on sep 22**/
+.colorPallet{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    float: right;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#colorPalletDashboardTileGreen{
+    border-radius: 50% 0% 50% 50%;
+    color: rgb(0,176,80);
+    background: white;
+    margin-top:4.5%;
+    width: 16%;
+    height: 67%;
+    margin-right:10%;
+    margin-left:6%;
+    float:right;
+    font-size: large;
+}
+#colorPalletDashboardTileAmber{
+    border-radius: 50% 0% 50% 50%;
+    color: rgb(255,191,0);
+    background: white;
+    margin-top:4.5%;
+    width: 16%;
+    height: 67%;
+    margin-right:10%;
+    margin-left:6%;
+    float:right;
+    font-size: large;
+}
+#colorPalletDashboardTileRed{
+    border-radius: 50% 0% 50% 50%;
+    color: rgb(255,77,77);
+    background: white;
+    margin-top:4.5%;
+    width: 16%;
+    height: 67%;
+    margin-right:10%;
+    margin-left:6%;
+    float:right;
+    font-size: large;
+}
+.summary thead tr th, .riskAndIssues thead tr th{
+	position:relative;
+}
+.summary thead tr th p:nth-child(2), .riskAndIssues thead tr th p:nth-child(2){
+	position: absolute;
+    bottom: 4px;
+    left: 78%;
+}
+.summary table,.rootCauseStatus table, .riskAndIssues table{
+    border-collapse: inherit;
+}
+.summary th p:nth-of-type(2),.summary th p:nth-of-type(2) #lastUpdatedDate{
+	color:black ! important;
+	/* font-weight: normal ! important; */
+}
+
+/** **/
+

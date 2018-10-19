@@ -1,0 +1,49 @@
+.tile.tile-medium {
+    height: 227px;
+    width: 115%;
+    padding: 0px;
+}
+.tile.tile-mediumOverall{
+	 height: 430px;
+    width: 115%;
+    padding: 0px;
+}
+.tile.tile-teal {
+    background-color: rgb(249,249,249);
+}
+
+#colorPalletDashboardTileRed,#colorPalletDashboardTileAmber,#colorPalletDashboardTileGreen{
+	cursor:pointer;
+}
+.tile {
+    display: block;
+   
+    -webkit-perspective: 0;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .2s;
+    float: left;
+    min-width: 75px;
+    min-height: 75px;
+    text-align: center;
+    opacity: .75;
+    background-color: #2e8bcc;
+    z-index: 1;
+    border: 4px #fff solid;
+    color: #fff;
+}
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    
+    border-radius: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
